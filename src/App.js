@@ -1,6 +1,7 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+import Login from './Component/Login';
 
 function App() {
   return (
@@ -8,7 +9,7 @@ function App() {
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
-          Edit <code>src/App.js</code> and save to reload.
+          로그인을 하면 게시판을 이용하실 수 있어욤
         </p>
         <a
           className="App-link"
@@ -16,7 +17,8 @@ function App() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Learn React
+          Login 하세용
+          <Login></Login>
         </a>
       </header>
     </div>
