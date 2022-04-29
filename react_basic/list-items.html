@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <script src="http://unpkg.com/react@15/dist/react.min.js"></script>
+        <script src="http://unpkg.com/react-dom@15/dist/react-dom.min.js"></script>
+        <script src="http://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.38/browser.min.js"></script>
+       
+    </head>
+    <body>
+        <div id="root"></div>
+        <script type="text/babel">
+
+        class RList extends React.Component {
+            render() {
+                const items = this.props.items.split(",");
+
+                const itemObj = items.map(
+                    (e) => {
+                        return <li> {e} </li>
+                    })
+
+                let title = this.props.title
+                if(!title) title = "List";
+
+                return (
+                    <div>
+                    <h3>{title}</h3>
+                    <ul>{itemObj} </ul>
+                    </div>
+                )
+            }
+        }
+
+        // const dom = 
+
+        // const TestCompo = (props) => (
+        //     <div> <h1>{props.title} </h1> </div>
+        // )
+
+        class PhotoText extends React.Component {
+            getImageURL(){
+                const id = this.props.image
+                const url = "img/" + id + ".jpg"
+                return url;
+            }
+
+            render() {
+                const label = this.props.label
+                const url = this.getImageURL()
+                const boxStyle = {
+                    border : "3px solid silver",
+                    margin : "10px",
+                    padding: "10px"
+                }
+
+                return (
+                    <div style={boxStyle}>
+                    <img src={url} width="350" />
+                    <span>{label} </span>
+                    </div>
+                )
+            }
+        }
+        const dom1 = <div>
+            <div>
+        <RList title = "Colors" items="Red,Green,Blue,White" />
+        </div>
+        <div>
+        <PhotoText image="pic1" label="어벤져스" />
+        <PhotoText image="pic2" label="어벤져" />
+        <PhotoText image="pic3" label="스파이더맨" />
+        </div>
+        </div>
+        ReactDOM.render(dom1, document.getElementById('root'))
+        
+        </script>
+    </body>
+</html>
